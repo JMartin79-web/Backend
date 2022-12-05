@@ -3,5 +3,24 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "nodemon": "^2.0.20"
-  }
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "desafio_clases.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JMartin79-web/Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JMartin79-web/Backend/issues"
+  },
+  "homepage": "https://github.com/JMartin79-web/Backend#readme",
+  "description": ""
 }
