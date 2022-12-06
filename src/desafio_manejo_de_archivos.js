@@ -36,7 +36,8 @@ export class ProductManager {
 
     getProducts(){
         this.#getProducts();
-        console.log(this.products)
+        console.log(this.products);
+        return(this.products)
     }
 
     getProductById (id) {
@@ -103,7 +104,7 @@ export class ProductManager {
     }
 }
 
-const productManager = new ProductManager();
+
 /*
 
 COMANDO PARA VERIFICAR EL FUNCIONAMIENTO
@@ -134,15 +135,3 @@ console.log("deleteProduct")
 productManager.deleteProduct(5)
 
 */
-
-productManager.addProduct("titulo1","aca va una descripcion", 100, "sin img", "este es el código", 20)
-console.log("addProducts")
-productManager.addProduct("titulo2","aca va una descripcion", 100, "sin img", "este es el código", 20)
-console.log("addProducts")
-productManager.addProduct("titulo3","aca va una descripcion", 100, "sin img", "este es el código", 20)
-console.log("addProducts")
-productManager.addProduct("titulo4","aca va una descripcion", 100, "sin img", "este es el código", 20)
-console.log("addProducts")
-productManager.addProduct("titulo5","aca va una descripcion", 100, "sin img", "este es el código", 20)
-console.log("addProducts")
-productManager.addProduct("titulo6","aca va una descripcion", 100, "sin img", "este es el código", 20)

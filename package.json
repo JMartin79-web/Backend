@@ -1,15 +1,12 @@
 {
-  "type": "module",
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "nodemon": "^2.0.20"
-  },
   "name": "backend",
   "version": "1.0.0",
-  "main": "desafio_clases.js",
+  "main": "server.js",
+  "type": "module",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --inspect server.js"
   },
   "repository": {
     "type": "git",
