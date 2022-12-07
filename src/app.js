@@ -16,16 +16,22 @@ app.listen(PORT, ()=>{
 })
 
 app.get("/products", (req, res) =>{
+    let limit = req.query.limit;
+    
     let productos = productManager.getProducts()
-    console.log("productos:") 
-    console.log(productos)
-    res.json(productos)
+    if(limit){
+        let until = parseInt(limit)
+        const productosLimit = productos.slice(0, until)
+        res.json(productosLimit)
+    }else{
+        res.json(productos)
+    }
 })
 
 app.get("/products/:pid", (req,res) => {
     const {pid} = req.params;
-    console.log(pid)
-    /*console.log(productManager.getProductById(pid))
-    const product = productManager.getProductById(pid)
-    res.json(product)*/
+    const id = parseInt(pid)
+    const product = productManager.getProductById(id)
+    res.json(product)
 })
+

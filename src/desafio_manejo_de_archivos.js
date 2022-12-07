@@ -43,14 +43,16 @@ export class ProductManager {
     getProductById (id) {
         this.#getProducts()
         let found = false
+        let productObtained = "";
         this.products.find((product)=>{
             if(product.id === id){
                 found = true
                 console.log(product)
-                return product
+                productObtained = product
             }
         })
-        if(!found){console.error("Error: El producto no existe")}
+        if(!found){productObtained = "Error: El producto no existe"; console.log("Error: El producto no existe")}
+        return (productObtained)
     }
 
     updateProduct(id,title, description, price, thumbnail, code, stock){
