@@ -1,7 +1,0 @@
-[
-{"id":1,"title":"titulo1","description":"aca va una descripcion","price":100,"thumbnail":"sin img","code":"este es el código","stock":20},
-{"id":2,"title":"titulo2","description":"aca va una descripcion","price":100,"thumbnail":"sin img","code":"este es el código","stock":20},
-{"id":3,"title":"titulo3","description":"aca va una descripcion","price":100,"thumbnail":"sin img","code":"este es el código","stock":20},
-{"id":4,"title":"titulo4","description":"aca va una descripcion","price":100,"thumbnail":"sin img","code":"este es el código","stock":20},
-{"id":5,"title":"titulo5","description":"aca va una descripcion","price":100,"thumbnail":"sin img","code":"este es el código","stock":20}
-]
