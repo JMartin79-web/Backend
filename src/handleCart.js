@@ -7,22 +7,26 @@ export class CartManager {
     }
 
     addCart(products){
+        
         const cart = {
             id: this.#getMaxId() +1,
             products
         }
-
-        if(Array.isArray(cart.products)){
-            console.log("Error: los productos deben de estar en un array")
-        }else{
-            this.#getCart();
-            // si no hay un cart ya agregado con ese id
-            if(!this.cart.includes(cart.id)){
-                this.cart.push(cart)
-                const cartToWrite = JSON.stringify(this.cart)
-                fs.writeFileSync(this.path, cartToWrite, "utf-8")
-            }else{console.error("Ya existe un cart con ese id")}
-        }
+        
+        this.#getCart();
+        // si no hay un cart ya agregado con ese id
+        if(!this.cart.includes(cart.id)){
+            let products = []
+            products.push(cart.products)
+            let cartToPush ={
+                id: cart.id,
+                products
+            }
+            this.cart.push(cartToPush)
+            const cartToWrite = JSON.stringify(this.cart)
+            fs.writeFileSync(this.path, cartToWrite, "utf-8")
+        }else{console.error("Ya existe un cart con ese id")}
+        
     }
 
     getCart(){
