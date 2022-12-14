@@ -53,6 +53,17 @@ export class CartManager {
         return (cartObtained)
     }
 
+    updateCart(id, products){
+        this.#getCart()
+        this.cart.find((cart)=>{
+            if(cart.id === id){
+                cart.products = products
+            }
+        })
+        const cartToWrite = JSON.stringify(this.cart)
+        fs.writeFileSync(this.path, cartToWrite, "utf-8")
+    }
+
     #getCart () {
         if(fs.existsSync("cart.json")){
             let file = fs.readFileSync("cart.json", "utf-8")
