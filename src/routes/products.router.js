@@ -26,6 +26,7 @@ productsRouter.get("/:pid", (req,res) => {
 
 productsRouter.post("/", (req,res)=>{
     let reqData = req.body
+    console.log("reqData")
     console.log(reqData)
     
     productManager.addProduct(
