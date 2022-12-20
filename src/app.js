@@ -24,7 +24,7 @@ app.get("/", (req,res)=>{
         name: "Martin",
         last_name: "Aguirre"
     }
-    res.render("index", testUSer)
+    res.render("home", testUSer)
 })
 
 

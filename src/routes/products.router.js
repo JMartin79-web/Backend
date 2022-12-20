@@ -8,12 +8,16 @@ productsRouter.get("/", (req,res)=>{
     let limit = req.query.limit;
     
     let productos = productManager.getProducts()
+    console.log(productos)
+
     if(limit){
         let until = parseInt(limit)
         const productosLimit = productos.slice(0, until)
-        res.json(productosLimit)
+        let productosRender = JSON.stringify(productosLimit)
+        res.render("home", {productosRender})
     }else{
-        res.json(productos)
+        let productosRender = productos;
+        res.render("home", {productosRender})
     }
 })
 
