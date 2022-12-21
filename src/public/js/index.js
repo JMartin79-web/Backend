@@ -8,7 +8,7 @@ btnAgregar.addEventListener("click", (e)=>{
     e.preventDefault()
     console.log("hace click")
     let formAgregar = document.getElementById("form-agregar").children
-
+    
     let productoAgregar = {
         title: formAgregar.item(0).value,
         description: formAgregar.item(1).value,
@@ -21,6 +21,15 @@ btnAgregar.addEventListener("click", (e)=>{
     }
     console.log(productoAgregar)
     socket.emit("addProduct", productoAgregar)
+
+    formAgregar.item(0).value = "",
+    formAgregar.item(1).value = "",
+    formAgregar.item(2).value = "",
+    formAgregar.item(3).value = "",
+    formAgregar.item(4).value = true,
+    formAgregar.item(5).value = "",
+    formAgregar.item(5).value = "",
+    formAgregar.item(6).value = ""
 })
 
 socket.on("ServidorSendProducts", (productos)=>{
