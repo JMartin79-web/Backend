@@ -20,10 +20,7 @@
     
     <div>
         <h2>Eliminar</h2>
-        <form action="" id="form-eliminar">
-            <input type="text" placeholder="id" id="form-eliminar-id">
-            
-        </form>
+            <input type="text" placeholder="id" id="input-eliminar-id">
             <button id="form-eliminar-submit">Enviar</button>
         
     </div>
@@ -32,7 +29,7 @@
 
 <div>
     <p>Productos</p>
-    <div>
+    <div id="productosRenderDiv">
         {{#each productosRender}}
             <ul id="lista-productos">{{this.title}}
                 <li>Id: {{this.id}} </li>

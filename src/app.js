@@ -38,7 +38,7 @@ socketServer.on("connection", (socket) => {
     socket.on("disconnect",()=>{console.log("Cliente desconectado")});
 
     socket.on("addProduct", (producto)=>{
-      console.log("Producto servidor obtenido: ",producto)
+      console.log("Producto obtenido en el servidor: ",producto)
 
       const productManager = new ProductManager();
       productManager.addProduct(
@@ -51,7 +51,17 @@ socketServer.on("connection", (socket) => {
         producto.category,
         producto.thumbnail,
       )
-      let productos = productManager.getProducts()
-      socketServer.emit("ServidorSendProducts", productos)
+      productManager.getProducts()
+      let lastProduct = productManager.getMaxId()
+      let enviarProducto = productManager.getProductById(lastProduct)
+      socketServer.emit("ServerSendProduct", enviarProducto)
+    })
+
+    socket.on("deleteProduct", (inputValue)=>{
+      console.log("Id obtenido en el servidor: ",inputValue)
+      const productManager = new ProductManager();
+      productManager.deleteProduct(inputValue)
+      let productosActualizados = productManager.getProducts()
+      socketServer.emit("ServerSendProducts", productosActualizados)
     })
 });

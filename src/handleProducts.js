@@ -82,6 +82,15 @@ export class ProductManager {
         }else{console.error("Error: El producto no existe")}
     }
 
+    getMaxId(){
+        this.#getProducts()
+        let maxId = 0;
+        this.products.map( (product) => {
+            if(product.id > maxId) maxId = product.id
+        })
+        return maxId;
+    }
+
     #getProducts () {
         if(fs.existsSync("products.json")){
             let file = fs.readFileSync("products.json", "utf-8")
