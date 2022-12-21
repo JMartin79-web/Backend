@@ -6,8 +6,11 @@ const productManager = new ProductManager();
 
 
 viewsRouter.get("/", (req,res)=>{
+    let productos = productManager.getProducts()
     console.log("views router esta funcionando")
-    res.render("realTimeProducts", {})
+    let productosRender = productos;
+    res.render("realTimeProducts", {productosRender})
+    
 })
 
 export default viewsRouter

@@ -1,6 +1,51 @@
 <div>
-    <p>REAL TIME PRODUCTS</p>
+
+    <div>
+        <h2>Agregar</h2>
+        <form action="" id="form-agregar">
+            <input type="text" placeholder="title" id="form-agregar-title">
+            <input type="text" placeholder="description" id="form-agregar-description">
+            <input type="text" placeholder="code" id="form-agregar-code">
+            <input type="text" placeholder="price" id="form-agregar-price">
+            <select id="form-agregar-status">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <input type="text" placeholder="stock" id="form-agregar-stock">
+            <input type="text" placeholder="category" id="form-agregar-category">
+            <input type="text" placeholder="thumbnail" id="form-agregar-thumbnail">
+        </form>
+            <button id="form-agregar-submit">Enviar</button>
+    </div>
     
+    <div>
+        <h2>Eliminar</h2>
+        <form action="" id="form-eliminar">
+            <input type="text" placeholder="id" id="form-eliminar-id">
+            
+        </form>
+            <button id="form-eliminar-submit">Enviar</button>
+        
+    </div>
+
+</div>
+
+<div>
+    <p>Productos</p>
+    <div>
+        {{#each productosRender}}
+            <ul id="lista-productos">{{this.title}}
+                <li>Id: {{this.id}} </li>
+                <li>Description: {{this.description}} </li>
+                <li>Code: {{this.code}} </li>
+                <li>Price: ${{this.price}} </li>
+                <li>Status: {{this.status}} </li>
+                <li>Stock: {{this.stock}} </li>
+                <li>Category: {{this.category}} </li>
+                <li>Thumbnail: {{this.thumbnail}} </li>
+            </ul>
+        {{/each}}
+    </div>
 </div>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>

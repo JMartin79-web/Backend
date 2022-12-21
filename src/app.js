@@ -8,6 +8,9 @@ import viewsRouter from './routes/views.router.js';
 
 import { Server } from 'socket.io';
 
+import { ProductManager } from './handleProducts.js';
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,4 +37,21 @@ socketServer.on("connection", (socket) => {
     
     socket.on("disconnect",()=>{console.log("Cliente desconectado")});
 
-  });
+    socket.on("addProduct", (producto)=>{
+      console.log("Producto servidor obtenido: ",producto)
+
+      const productManager = new ProductManager();
+      productManager.addProduct(
+        producto.title,
+        producto.description,
+        producto.code,
+        producto.price,
+        producto.status,
+        producto.stock,
+        producto.category,
+        producto.thumbnail,
+      )
+      let productos = productManager.getProducts()
+      socketServer.emit("ServidorSendProducts", productos)
+    })
+});

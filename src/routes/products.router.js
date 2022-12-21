@@ -13,7 +13,7 @@ productsRouter.get("/", (req,res)=>{
     if(limit){
         let until = parseInt(limit)
         const productosLimit = productos.slice(0, until)
-        let productosRender = JSON.stringify(productosLimit)
+        let productosRender = productosLimit
         res.render("home", {productosRender})
     }else{
         let productosRender = productos;
